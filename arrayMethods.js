@@ -18,8 +18,15 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
 */
 
 // CODE HERE
-const evenNumbers = mixedNumbers.filter(/* Provide Your Callback Here */)
+const evenNumbers = mixedNumbers.filter(
+  (element, index, wholeArray) => {
+    if (element % 2 === 0) {
+      return true
+    } else return false
+  
+})
 
+//console.log(evenNumbers)
 
 
 ////////// PROBLEM 2 //////////
@@ -39,14 +46,17 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 // CODE HERE
-// const postTaxPrices = prices.map(/* Provide Your Callback Here );
+const postTaxPrices = prices.map(
+  (element, index, wholeArray) => {
+    return element * 1.07
+  })
 
-
+  // console.log(postTaxPrices)
 
 // ////////// PROBLEM 3 //////////
 
 // // Do not edit the code below.
-// const populations = [8175133, 3792621, 2695598, 2100263];
+const populations = [8175133, 3792621, 2695598, 2100263];
 // // Do not edit the code above.
 
 // /*
@@ -57,15 +67,25 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 // */
 
 // // CODE HERE
-// const totalPopulation = populations.reduce()
+const totalPopulation = populations.reduce(
+  function(runningTotal, curElement, curIndex, wholeArray) {
+    return runningTotal + curElement
+  })
 
+  // console.log(totalPopulation)
+
+  // a = populations[0] + populations[1] + populations[2] + populations[3]  
+
+  // console.log(a)
 
 
 ////////// PROBLEM 4 //////////
 
 // Do not edit the code below.
-const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulbabunny","CP":135},
-{"monster":"Bulbabunny","CP":250},{"monster":"Ponylopse","CP":277},{"monster":"Ponylopse","CP":184},
+const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},
+{"monster":"Bulbabunny","CP":135},
+{"monster":"Bulbabunny","CP":250},
+{"monster":"Ponylopse","CP":277},{"monster":"Ponylopse","CP":184},
 {"monster":"Pikadoughnet","CP":207},{"monster":"Bulbabunny","CP":139},{"monster":"Pikadoughnet","CP":47},
 {"monster":"Pikadoughnet","CP":175},{"monster":"WaterHorsia","CP":26},{"monster":"Ponylopse","CP":19},
 {"monster":"Pikadoughnet","CP":218},{"monster":"Charaflier","CP":101},{"monster":"WaterHorsia","CP":96},
@@ -82,9 +102,14 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 // CODE HERE
-// const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+const myStrongest = monstersInYourPocket.filter(
+  function (element) {
+    if (element.CP > 200) {return true}
+    else {return false}
+  } 
+)
 
-
+// console.log(myStrongest)
 
 ////////// PROBLEM 5 //////////
 
@@ -100,8 +125,12 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 // CODE HERE
+const afterTax = orders.map(
+  (element) => {
+    return element.price + element.tax
+  })
 
-
+  // console.log(afterTax)
 
 ////////// PROBLEM 6 //////////
 
@@ -121,7 +150,8 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 
 // CODE HERE
 
-//constbobsTotal = purchases.filter(function(obj) {return obj.owner === "Bob"});
+
+const bobsTotal = purchases.filter(function(obj) {return obj.owner === "Bob"});
 
 const purchaseSum = (purchases) => purchases.filter((el) => el.owner === "Bob").map((obj) => obj["price"]).reduce((acc, crvl) => acc + crvl);
 
