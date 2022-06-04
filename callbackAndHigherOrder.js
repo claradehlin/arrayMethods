@@ -165,9 +165,9 @@ function each (arr, callback) {
   'The item at index [INDEXPARAM] is [ITEMPARAM].'
 */
 
-each (names, function(item, index) {
-  console.log(`The item at index ${index} is ${item}`)
-})
+// each (names, function(item, index) {
+//   console.log(`The item at index ${index} is ${item}`)
+// })
 
 
 ////////// PROBLEM 7 //////////
@@ -233,7 +233,16 @@ function getUserById(arr, id, callback){
   the two parameters together and return the sum.
 */
 
-// CODE HERE
+
+function addingFactory (num1) {
+  return (num2) => {
+      return num1 + num2;
+  }
+}
+
+call = addingFactory(2)
+
+// console.log (call(5))
 
 /*
   Now that you have addingFactory, you can create other
@@ -247,7 +256,7 @@ function getUserById(arr, id, callback){
   10 as an arguemnt.
 */
 
-// CODE HERE
+let addTen = addingFactory(10)
 
 /*
   Now the inner function is stored in the addTen variable! 
@@ -259,8 +268,7 @@ function getUserById(arr, id, callback){
   to see the different outputs.
 */
 
-// CODE HERE
-
+// console.log (addTen(5))
 /*
   Let's make another function from the addingFactory. 
 
@@ -272,4 +280,5 @@ function getUserById(arr, id, callback){
   to add any number to your favorite number!
 */
 
-// CODE HERE
+// addNumberThirtySeven = addingFactory(37)
+// console.log(addNumberThirtySeven(5))
